@@ -29,5 +29,17 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "OK" });
 });
 
+app.get("/api/db-health", async (req, res) => {
+  try {
+    const state = mongoose.connection.readyState;
+    if (state === 1) {
+      return res.json({ db: "connected" });
+    }
+    res.status(500).json({ db: "not connected", state });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 export default app;
