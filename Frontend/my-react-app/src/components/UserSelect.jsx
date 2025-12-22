@@ -31,7 +31,7 @@ export default function UserSelect({
     if (!newUser.trim()) return;
 
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/users/createUser`, {
+      const res = await fetch(`${process.env.VITE_API_URL}/api/users/createUser`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: newUser.trim() }),
