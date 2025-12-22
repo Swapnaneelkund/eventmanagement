@@ -1,10 +1,10 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import connectDB from "./config/db.js";
+import connectDB from "../config/db.js";
 
-import userRoutes from "./routes/user.routes.js";
-import eventRoutes from "./routes/event.routes.js";
+import userRoutes from "../routes/user.routes.js";
+import eventRoutes from "../routes/event.routes.js";
 
 dotenv.config();
 connectDB();
@@ -25,5 +25,9 @@ app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
+app.get("/api/health", (req, res) => {
+  res.json({ status: "OK" });
+});
+
 
 export default app;
