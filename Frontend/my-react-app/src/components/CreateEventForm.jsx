@@ -67,8 +67,8 @@ export default function CreateEventForm({ isOpen, editEvent, refresh }) {
 
     try {
       const url = editEvent
-        ? `http://localhost:5000/api/events/updateEvent/${editEvent._id}`
-        : "http://localhost:5000/api/events/createEvent";
+        ? `${process.env.REACT_APP_API_URL}/api/events/updateEvent/${editEvent._id}`
+        : `${process.env.REACT_APP_API_URL}/api/events/createEvent`;
 
       const res = await fetch(url, {
         method: editEvent ? "PUT" : "POST",

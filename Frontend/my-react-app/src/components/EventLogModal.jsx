@@ -7,7 +7,7 @@ export default function EventLogModal({ eventId, onClose }) {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/events/getEventLogs/${eventId}`);
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/events/getEventLogs/${eventId}`);
         const data = await res.json();
         setLogs(data);
       } catch (err) {

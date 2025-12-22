@@ -37,7 +37,7 @@ export default function EditEvent({ event, onClose }) {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/events/updateEvent/${event._id}`,
+        `${process.env.REACT_APP_API_URL}/api/events/updateEvent/${event._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
