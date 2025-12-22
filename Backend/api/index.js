@@ -5,6 +5,7 @@ import connectDB from "../config/db.js";
 
 import userRoutes from "../routes/user.routes.js";
 import eventRoutes from "../routes/event.routes.js";
+import mongoose from "mongoose";
 
 dotenv.config();
 connectDB();
