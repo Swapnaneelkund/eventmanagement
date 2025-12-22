@@ -32,15 +32,13 @@ app.get("/api/health", (req, res) => {
 
 app.get("/api/db-health", async (req, res) => {
   try {
-    const state = mongoose.connection.readyState;
-    if (state === 1) {
-      return res.json({ db: "connected" });
-    }
-    res.status(500).json({ db: "not connected", state });
+    await connectDB(); 
+    res.json({ dbState: "connected" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ dbState: "not connected", error: err.message });
   }
 });
+
 
 
 export default app;
