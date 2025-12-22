@@ -10,14 +10,20 @@ dotenv.config();
 connectDB();
 
 const app = express();
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://your-frontend.vercel.app"
+    ],
+    credentials: true
   })
 );
+
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
 
-app.listen(process.env.PORT, () => console.log("Server running on port 5000"));
+export default app;
