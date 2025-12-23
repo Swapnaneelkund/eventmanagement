@@ -7,7 +7,7 @@ export default function EventLogModal({ eventId, onClose }) {
   useEffect(() => {
     const fetchLogs = async () => {
       try {
-        const res = await fetch(`${process.env.VITE_API_URL}/api/events/getEventLogs/${eventId}`);
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/events/getEventLogs/${eventId}`);
         const data = await res.json();
         setLogs(data);
       } catch (err) {

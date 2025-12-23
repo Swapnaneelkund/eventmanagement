@@ -21,7 +21,7 @@ function EventManagementPage() {
   useEffect(() => {
     async function fetchUsers() {
       try {
-        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/users/getUsers`);
+        const res = await fetch(`$${import.meta.env.VITE_API_URL}/api/users/getUsers`);
         const data = await res.json();
         dispatch(setUsers(data));
 
@@ -39,7 +39,7 @@ function EventManagementPage() {
   const fetchEvents = async (userId) => {
     try {
       const res = await fetch(
-        `${process.env.VITE_API_URL}/api/events/getEvent/${userId}`
+        `${import.meta.env.VITE_API_URL}/api/events/getEvent/${userId}`
       );
       const data = await res.json();
       
@@ -51,7 +51,7 @@ function EventManagementPage() {
   };
 
   const handleAddUser = async (name) => {
-    const res = await fetch(`${process.env.VITE_API_URL}/api/users`, {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/api/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name }),

@@ -67,8 +67,8 @@ export default function CreateEventForm({ isOpen, editEvent, refresh }) {
 
     try {
       const url = editEvent
-        ? `${process.env.VITE_API_URL}/api/events/updateEvent/${editEvent._id}`
-        : `${process.env.VITE_API_URL}/api/events/createEvent`;
+        ? `${import.meta.env.VITE_API_URL}/api/events/updateEvent/${editEvent._id}`
+        : `${import.meta.env.VITE_API_URL}/api/events/createEvent`;
 
       const res = await fetch(url, {
         method: editEvent ? "PUT" : "POST",

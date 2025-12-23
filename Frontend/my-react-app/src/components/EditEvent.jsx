@@ -37,7 +37,7 @@ export default function EditEvent({ event, onClose }) {
 
     try {
       const res = await fetch(
-        `${process.env.VITE_API_URL}/api/events/updateEvent/${event._id}`,
+        `${import.meta.env.VITE_API_URL}/api/events/updateEvent/${event._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
