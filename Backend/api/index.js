@@ -16,7 +16,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://eventmanagement-nc5l.vercel.app"
+      "https://eventmanagement-s729-b41w46jci-swapnaneelkunds-projects.vercel.app"
     ],
     credentials: true
   })
